@@ -65,12 +65,23 @@ using namespace std;
 
     bool Animal:: isAnimalHumanFriendly() const{
 
-      return this->humanFriendly;
+      if(this->humanFriendly == false){
+
+        cout<<"False";
+        return false;
+
+      }else{
+
+        cout<<"True";
+
+      }
+
+      return true;
     }
 
     void Animal:: printAnimalInfo() const {
 
-        cout<<"\nAnimal Name : "<<this->animalName<<"\nAnimal Age : "<<this->animalAge<<"\nAnimal Type : "<<this->animalType<<"\nAnimal Habitat : "<<this->animalHabitat<<"\nAnimal Class : "<<this->animalClass<<"Human Friendly : "<<this->humanFriendly<<endl;
+        cout<<"\nAnimal Name : "<<this->getAnimalName()<<"\nAnimal Age : "<<this->getAnimalAge()<<"\nAnimal Type : "<<this->getAnimalType()<<"\nAnimal Habitat : "<<this->getAnimalHabitat()<<"\nAnimal Class : "<<this->getAnimalClass()<<"Human Friendly : "<<this->isAnimalHumanFriendly()<<endl;
 
     }
 
