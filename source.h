@@ -21,7 +21,8 @@ class Animal{
 
         Animal(std::string, std::string, std::string, int);
         //the constructor with parameters
-        //the first three strings are : the name, the type, the habitat. Then the int is the age
+        //the first four strings are : the name, the type, the habitat, the class. The bool is the true/false value .Then the int is the age
+
 
         Animal(const Animal& otherAnimal);
         // copy constructor
