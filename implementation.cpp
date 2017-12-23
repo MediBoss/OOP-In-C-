@@ -1,89 +1,101 @@
-//animal.h, the specification file for the class Animal
-
+#include <iostream>
+#include "animal.h"
 #include <string>
 
-class Animal{
+using namespace std;
+            //IMPLEMENTATION OF THE CONSTRUCTORS
 
-    private:
+    Animal::Animal(){
+            // default constructor
+            this->animalName = "no name";
+            this->animalType = "no type";
+            this->animalClass = "no class";
+            this->animalHabitat = "no habitat";
+            this->humanFriendly = false; //will be false by default
+            this->animalAge = 0;
+    }
 
-        std::string animalName; // //instance variable to store the animal name
-        std::string animalType;//instance variable to store the animal type
-        std::string animalHabitat;//instance variable to store animal habitat
-        std::string animalClass;// Example : carnnivore, herbivore,etc...
-        bool humanFriendly;// tells wheter the animal can live with humans or not
-        int animalAge;  // instance variable to store animal age
+    Animal::Animal(string name, string type,string habitat, string Animalclass, bool friendly, int age){
+        //constructor with parameters
+        this->animalName = name;
+        this->animalType = type;
+        this->animalHabitat = habitat;
+        this->animalClass = animalClass;
+        this-> humanFriendly = friendly;
+        this->animalAge = age;
+    }
 
-    public:
-
-                //THE CONSTRUCTORS
-
-        Animal(); //default constructor
-
-        Animal(std::string, std::string, std::string, int);
-        //the constructor with parameters
-        //the first three strings are : the name, the type, the habitat. Then the int is the age
-
-        Animal(const Animal& otherAnimal);
-        // copy constructor
-        //used when copying two objects together
-
-
-              //THE DESTRUCTOR
-          ~Animal();
-          // Desctructor
-          //invoked when an object has no longer use in the program
-                //GETTER FUNCTIONS
-
-        std::string getAnimalName() const;
-        //function to get the animal name (milos, loof, mickey,etc...)
-        //postcondition : the name of the animal is returned
-
-        std::string getAnimalType() const;
-        //function to get the animal type (mammals,reptile,bird,fish)
-        //postcondition : the type of the animal is returned
-
-        std::string getAnimalHabitat() const;
-        //function to get the habitat of the animal(rain forest, polar, tundra, desert, junugle)
-        //postcondition : the habitat of the animal id returned
-
-        std::string getAnimalClass() const;
-        //function to get the class of the animal : Carnivore, herbivore, etc...
-        //postcondition : The animal's class is returned
-
-        bool isAnimalHumanFriendly() const;
-        //function to return a true or false responce to wheter the animal is human humanFriendly
-        //postcondition : A true or false value is returned
-
-        void printAnimalInfo() const;
-        //function to print all information about the animal object
-        //postcondition : The name, the age, the habitat, the type are printed
+    Animal::Animal(const Animal& otherAnimal){
+      //copy constructor
+      this->animalName = otherAnimal.animalName;
+      this->animalType = otherAnimal.animalType;
+      this->animalHabitat = otherAnimal.animalHabitat;
+      this->animalClass = otherAnimal.animalClass;
+      this->animalAge = otherAnimal.animalAge;
+      this->humanFriendly = otherAnimal.humanFriendly;
+    }
 
 
-        int getAnimalAge() const;
-        //function to get the age of the animal
-        //postcondition : the age of the animal is returned
+            //IMPLEMENTATION OF THE GETTER FUNCTIONS
 
-                //SETTER FUNCTIONS
+    string Animal:: getAnimalName() const{
 
-        void setAnimalName(std::string);
-        //function to set the animal name (milos, loof, mickey,etc...)
-        //postcondition : the name of the animal is set to the new name passed as parameter
+        return this->animalName;
+    }
 
-        void setAnimalType(std::string);
-        //function to set the animal type (mammals,reptile,bird,fish)
-        //postcondition : the type of the animal is set to the new type passed as parameter
+    string Animal:: getAnimalType() const{
 
-        void setAnimalHabitat(std::string);
-        //function to set the habitat of the animal(rain forest, polar, tundra, desert, junugle)
-        //postcondition : the habitat of the animal is set to the new habitat passed as parameter
+        return this->animalType;
+    }
 
-        void setAnimalClass(std::string);
-        //function to set the animal's class given a string
-        //postcondition : The animal class is set to a new string value
+    string Animal:: getAnimalHabitat() const{
 
-        void setAnimalAge(int);
-        //function to set the age of the animal
-        //postcondition : animalAge is changed to the new age
+        return this->animalHabitat;
+    }
 
-};
+    string Animal:: getAnimalClass() const{
 
+      return this->animalClass;
+    }
+
+    int Animal:: getAnimalAge() const{
+
+        return this->animalAge;
+    }
+
+    bool Animal:: isAnimalHumanFriendly() const{
+
+      return this->humanFriendly;
+    }
+
+    void Animal:: printAnimalInfo() const {
+
+        cout<<"\nAnimal Name : "<<this->animalName<<"\nAnimal Age : "<<this->animalAge<<"\nAnimal Type : "<<this->animalType<<"\nAnimal Habitat : "<<this->animalHabitat<<"\nAnimal Class : "<<this->animalClass<<"Human Friendly : "<<this->humanFriendly<<endl;
+
+    }
+
+            //IMPLEMENTATION OF THE SETTER FUNCTIONS
+
+    void Animal:: setAnimalName(string name){
+
+        this->animalName = name;
+
+    }
+
+    void Animal:: setAnimalType(string type){
+
+        this->animalType = type;
+
+    }
+
+    void Animal:: setAnimalHabitat(string habitat){
+
+        this->animalHabitat = habitat;
+
+    }
+
+    void Animal:: setAnimalAge(int age){
+
+        this->animalAge = age;
+
+    }
